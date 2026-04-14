@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(reset.css);
+
+:root {
+    --amarelo-base: #FFF4CC;
+    --amarelo-contraste: #FFF1B8;
+    --amarelo-apoio: #F6EECF;
+    --lilas-base: #9C8CB9;
+    --lilas-contraste: #A497C2;
+    --lilas-apoio: #8F84B3;
+    --branco-quente: #FFFEF8;
+    --cinza-texto: #3E3E3E;
+    --cinza-texto-dois: #6B6B6B;
+    --fonte-principal: Montserrat, sans-serif;
+    --fonte-secundaria: Cormorant, serif;
+}
+
+body {
+    background-color: var(--branco-quente);
+    margin: auto;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--branco-quente);
+    position: fixed;
+    font-family: var(--fonte-principal);
+    color: var(--cinza-texto);
+    padding: 2.188rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    border-radius: 20px;
+    gap: 3.75rem;
+    align-items: center;
+    z-index: 99;
+
+    a {
+        text-decoration: none;
+        color: var(--cinza-texto);
+    }
+
+}
+
+section {
+    position: relative;
+    max-width: 1440px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 1000px;
+    overflow: hidden;
+    font-family: var(--fonte-principal);
+    justify-content: center;
+    align-items: start;
+    gap: 3.75rem;
+    padding-left: 5rem;
+
+    h1 {
+        font-size: 6.25rem;
+        font-weight: 800;
+        color: var(--cinza-texto);
+        width: 34rem;
+    }
+
+    p {
+        font-size: 2.063rem;
+        width: 26rem;
+        color: var(--cinza-texto);
+    }
+
+    button {
+        background-color: var(--amarelo-contraste);
+        border: var(--cinza-texto) solid 1px;
+        padding: 20px;
+        border-radius: 20px;
+        font-size: 1.875rem;
+        font-weight: 600;
+        color: var(--cinza-texto);
+    }
+
+    .bg-hero {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+
+}
+
+.sobre {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fonte-secundaria);
+    justify-content: center;
+    align-items: end;
+    padding: 420px 100px 0 0;
+
+
+    h2 {
+        color: var(--lilas-apoio);
+        font-size: 3rem;
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 1.5rem;
+        color: var(--cinza-texto);
+        text-align: center;
+        width: 36.5rem;
+    }
+
+    .sobre-container {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--branco-quente);
+        border: var(--cinza-texto) solid 1px;
+        border-radius: 20px;
+        gap: 1.5rem;
+        align-items: center;
+        padding: 36px;
+
+    }
+
+    .bg-sobre {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+}
+
+.atendimentos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: var(--fonte-principal);
+    gap: 20px;
+
+    h2 {
+        font-size: 3.125rem;
+        font-weight: 600;
+        color: var(--lilas-base);
+    }
+
+    h3 {
+        font-size: 3.125rem;
+        font-weight: 100;
+        color: var(--cinza-texto);
+    }
+
+    .atendimento-container-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        border-radius: 20px;
+        border: var(--cinza-texto-dois) solid 1px;
+        width: 620px;
+        height: 140px;
+        background-color: var(--branco-quente);
+    }
+
+    .atendimento-conteudo {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        p:first-child {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--cinza-texto);
+
+            p {
+                font-size: 1.063rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .atendimento-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 115px;
+        padding-top: 220px;
+    }
+
+    .bg-atendimentos {
+        margin-top: 160px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+    }
+}
+
+.agendamento {
+    display: flex;
+    background-color: var(--amarelo-base);
+    height: 1075px;
+    width: 1200px;
+    border-radius: 20px;
+    margin-top: 160px;
+    font-family: var(--fonte-principal);
+
+    h2 {
+        font-size: 3.125rem;
+        font-weight: 600;
+        color: var(--lilas-base);
+        align-self: start;
+        padding-left: 100px; /*verificar depois que centralizar o site*/
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--cinza-texto);
+        align-self: start;
+        padding-left: 100px;/*verificar depois que centralizar o site*/
+        width: 75%;
+    }
+
+    button {
+        background-color: var(--lilas-base);
+        border: var(--cinza-texto-dois) solid 1px;
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 20px;
+        font-size: 1.875rem;
+        font-weight: 600;
+        color: var(--branco-quente);
+        width: 360px;
+    }
+
+    .agendamento-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .consulta-placeholder { /*palceholder para o agendamento*/
+        background-color: var(--branco-quente);
+        border: var(--cinza-texto-dois) solid 1px;
+        border-radius: 20px;
+        width: 1000px;
+        height: 600px;
+    }
+}
