@@ -65,12 +65,12 @@ section {
         width: 34rem;
     }
 
-    p {
+    .texto-hero {
         font-size: 2.063rem;
         width: 26rem;
         color: var(--cinza-texto);
     }
-
+  
     button {
         background-color: var(--amarelo-contraste);
         border: var(--cinza-texto) solid 1px;
@@ -208,57 +208,262 @@ section {
     }
 }
 
-.agendamento {
+/* Formulario */
+.form-wrapper {
     display: flex;
+    justify-content: center;
+    padding: 60px 0; 
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: var(--amarelo-base);
-    height: 1075px;
-    width: 1200px;
+    width: 100%;
+    /* Mudar o tamanho do formulario */
+    max-width: 900px;
     border-radius: 20px;
     margin-top: 160px;
+    padding: 60px;
+    gap: 40px;
     font-family: var(--fonte-principal);
 
-    h2 {
+    align-items: center;
+
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+
+
+    .form-header {
+        width: 100%;
+    }
+
+    .form-header h2 {
         font-size: 3.125rem;
         font-weight: 600;
         color: var(--lilas-base);
-        align-self: start;
-        padding-left: 100px; /*verificar depois que centralizar o site*/
+        margin-bottom: 20px;
     }
 
-    h3 {
+    .form-header h3 {
+        font-family: var(--fonte-secundaria);
         font-size: 1.5rem;
-        font-weight: 300;
+        font-weight: 500;
         color: var(--cinza-texto);
-        align-self: start;
-        padding-left: 100px;/*verificar depois que centralizar o site*/
         width: 75%;
+    }
+
+    .form-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .form-section h2{
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--cinza-texto);
+    }
+    .form-section label {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--cinza-texto);
+        margin-bottom: 10px;
+    }
+
+    .form-row {
+        display: flex;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    input, select {
+        background-color: var(--branco-quente);
+        border: 1px solid var(--cinza-texto-dois);
+        border-radius: 12px;
+        padding: 15px;
+        font-size: 1rem;
+    }
+    .radio-group {
+        display: flex;
+        gap: 20px;
+        margin-top: 5px;
+    }
+
+    .form-btn {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     button {
         background-color: var(--lilas-base);
-        border: var(--cinza-texto-dois) solid 1px;
-        margin-top: 20px;
+        border: 1px solid var(--cinza-texto-dois);
         padding: 20px;
         border-radius: 20px;
         font-size: 1.875rem;
         font-weight: 600;
         color: var(--branco-quente);
         width: 360px;
+        transition: all 0.2s ease;
+        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
     }
+    button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+}
 
-    .agendamento-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-    }
+/* Perguntas Frequentes */
+.faq-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 80px 20px;
+}
 
-    .consulta-placeholder { /*palceholder para o agendamento*/
-        background-color: var(--branco-quente);
-        border: var(--cinza-texto-dois) solid 1px;
-        border-radius: 20px;
-        width: 1000px;
-        height: 600px;
-    }
+.faq {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--lilas-base);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 20px 20px 0 rgba(0,0,0,0.1);
+}
+
+.faq h2 {
+    font-family: var(--fonte-principal);
+    color: var(--cinza-texto);
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+/* ITEM */
+.faq-item {
+    background: var(--branco-quente);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+.faq-item span {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--lilas-base);
+}
+
+.icon img {
+    width: 30px;
+    height: 10px;
+}
+
+
+.faq-answer {
+    display: none;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* Roda o pé */
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--amarelo-apoio);
+    padding: 60px 20px;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    font-family: var(--fonte-principal);
+}
+
+.footer-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--cinza-texto);
+}
+
+.footer-header p {
+    font-size: 1rem;
+    color: var(--cinza-texto-dois);
+    margin-top: 15px;
+}
+
+.footer hr {
+    margin: 30px 0;
+    border: none;
+    height: 2px;
+    background-color: var(--cinza-texto-dois);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: var(--cinza-texto);
+    font-size: 0.9rem;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.footer-social a {
+    background-color: var(--amarelo-contraste);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.footer-social img {
+    width: 40px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: var(--cinza-texto-dois);
+}
+.footer-bottom a{
+    text-decoration: none;
+    color: #011466;
 }
