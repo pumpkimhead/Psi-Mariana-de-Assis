@@ -230,7 +230,7 @@ section {
 
     align-items: center;
 
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 
 
     .form-header {
