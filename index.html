@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psi Mariana de Assis</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -26,7 +23,7 @@
             <img src="img/hero.png" alt="background hero">
         </div>
         <h1>Mariana de Assis</h1>
-        <p>Cuidar da sua mente e o primeiro passo para transformar sua vida.</p>
+        <p class="texto-hero">Cuidar da sua mente e o primeiro passo para transformar sua vida.</p>
         <button>Agendar Consulta</button>
     </section>
     <section class="sobre">
@@ -105,19 +102,95 @@
             </div>
         </div>
     </section>
-    <section class="agendamento">
-        <div class="agendamento-container">
-            <h2>
-                Agende aqui sua consulta
-            </h2>
-            <h3>Preencha o formulário abaixo para marcar sua consulta comigo e aguarde a confirmação no WhatsApp.
-            </h3>
-            <div class="consulta-placeholder">
-                place holder
+
+    <div class="form-wrapper">
+        <form class="formulario">
+
+            <div class="form-header">
+                <h2>Agende aqui sua consulta</h2>
+                <h3>
+                Preencha o formulário abaixo para marcar sua consulta comigo e aguarde a confirmação no WhatsApp.
+                </h3>
             </div>
-            <button>Agendar Consulta</button>
-        </div>
-    </section>
+
+            <div class="form-section">
+                <h2>Seus Dados:</h2>
+                    <div class="form-group" id="msgNome">
+                        <input 
+                        type="text" 
+                        placeholder="Seu nome completo" 
+                        name="nome"
+                        id="input-nome">
+                    </div>
+
+                    <div class="form-row">
+                        <input 
+                        type="text" 
+                        placeholder="(DDD) 99999-9999" 
+                        name="numero"
+                        id="input-numero">
+            
+                        <input 
+                        type="text" 
+                        placeholder="email@exemplo.com" 
+                        id="input-email">
+                        </div>
+                        <p id="resultMensagem"></p>
+                    </div>
+
+            <div class="form-section">
+                <h2>Detalhes do agendamento</h2>
+
+                <div class="form-row">
+                <div class="form-group">
+                    <label>Data desejada</label>
+                    <input 
+                    type="date"
+                    id="input-data">
+                </div>
+
+                <div class="form-group">
+                    <label>Horário desejado</label>
+                    <select id="input-horario">
+                        <option value="">Selecione</option>
+                        <option value="8:00 - 9:00">8:00 - 9:00</option>
+                        <option value="9:00 - 10:00">9:00 - 10:00</option>
+                    </select>
+                </div>
+                </div>
+
+                <div class="form-row">
+                <div class="form-group">
+                    <label>Tipo consulta</label>
+                    <select id="input-tipo-consulta">
+                        <option value="">Selecione</option>
+                        <option value="primeira-consulta">Primeira consulta</option>
+                        <option value="retorno">Retorno</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Forma de atendimento</label>
+                    <div class="radio-group">
+                    <label><input 
+                        type="radio" 
+                        name="tipo" 
+                        value="presencial"> Presencial
+                    <label><input 
+                        type="radio" 
+                        name="tipo" 
+                        value="online"> Online</label>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="form-btn">
+                <button>Agendar consulta</button>
+            </div>
+        </form>
+    </div>
+
     <section class="perguntas">
         <h2>
             Perguntas frequentes
@@ -179,5 +252,7 @@
         </div>
     </footer>
 </body>
+
+<script src="scripts/validation.js"></script>
 
 </html>
