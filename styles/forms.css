@@ -127,3 +127,37 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    /* ── FORMULÁRIO ── */
+    .form-wrapper {
+        padding: 40px 1.25rem;
+    }
+ 
+    .formulario {
+        margin-top: 0;
+        padding: 2rem 1.25rem;
+        gap: 28px;
+        max-width: 100%;
+    }
+ 
+    .formulario .form-header h2 {
+        font-size: 2rem;
+    }
+ 
+    .formulario .form-header h3 {
+        font-size: 1.1rem;
+        width: 100%;
+    }
+ 
+    /* Campos em coluna única */
+    .formulario .form-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+ 
+    .formulario button {
+        width: 100%;
+        font-size: 1.375rem;
+    }
+}

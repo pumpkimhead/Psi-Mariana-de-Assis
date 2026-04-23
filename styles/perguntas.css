@@ -65,3 +65,30 @@
     }
 
 }
+
+@media (max-width: 768px) {
+ /* ── PERGUNTAS ── */
+    .perguntas .perguntas-container {
+        padding: 2rem 1.25rem;
+        margin: 40px 1.25rem;
+        border-radius: 20px;
+        box-shadow: 8px 8px 0px color-mix(in srgb, var(--lilas-contraste) 25%, transparent);
+    }
+ 
+    .perguntas h2 {
+        font-size: 2rem;
+    }
+ 
+    .perguntas summary {
+        width: 100%;
+        font-size: 1.25rem;
+        box-sizing: border-box;
+    }
+ 
+    .perguntas p {
+        width: 100%;
+        font-size: 1.1rem;
+        box-sizing: border-box;
+    }
+
+}

@@ -63,3 +63,55 @@
         }
     }
 }
+
+
+@media (max-width: 768px) {
+    /* ── SOBRE ── */
+    .sobre {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        overflow: visible;
+    }
+ 
+    .sobre .elementos-sobre {
+        grid-column: 1 / 2;
+        grid-row: 1;
+        display: flex;
+        justify-content: center;
+        background: none;
+ 
+        img {
+            width: 70%;
+            max-width: 320px;
+        }
+    }
+ 
+    /* Círculo decorativo do sobre */
+    .circulo {
+        display: none;
+    }
+ 
+    .sobre .sobre-container {
+        grid-column: 1 / 2;
+        grid-row: 2;
+        padding: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+ 
+    .sobre h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+ 
+    .sobre p {
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: left;
+    }
+ 
+    .sobre .sobre-container-texto {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+}

@@ -95,3 +95,74 @@
         }
     }
 }
+
+
+@media (max-width: 768px) {
+ 
+    .hero {
+        height: auto;
+        min-height: 100svh;
+    }
+ 
+    .hero .grid-hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        background: linear-gradient(
+            to bottom,
+            color-mix(in srgb, var(--amarelo-contraste) 60%, transparent) 60%,
+            transparent 100%
+        );
+        padding-top: 100px;
+        padding-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+ 
+    .hero .grid-hero .grid-hero-circulo {
+        width: 600px;
+        height: 600px;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-20%);
+    }
+ 
+    .hero .grid-hero .grid-esquerda {
+        grid-column: 1 / 2;
+        grid-row: 1;
+        margin-left: 0;
+        padding: 0 1.5rem;
+        align-items: flex-start;
+        gap: 1.5rem;
+        z-index: 4;
+    }
+ 
+    .hero .grid-hero .grid-esquerda h1 {
+        font-size: 3.5rem;
+        width: auto;
+    }
+ 
+    .hero .grid-hero .grid-esquerda .texto-hero {
+        font-size: 1.25rem;
+    }
+ 
+    .hero .grid-hero .grid-esquerda button {
+        font-size: 1.25rem;
+        padding: 14px 24px;
+    }
+ 
+    .hero .grid-hero img {
+        grid-column: 1 / 2;
+        grid-row: 1;
+        position: relative;
+        place-self: unset;
+        margin: 0 auto;
+        width: 65%;
+        max-width: 340px;
+        display: block;
+        z-index: 3;
+    }
+ 
+    .hero .grid-hero .grid-direita {
+        display: none;
+    }
+}
