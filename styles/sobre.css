@@ -5,20 +5,20 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
+ 
     h2 {
         color: var(--lilas-apoio);
         font-size: 3rem;
         font-weight: 600;
     }
-
+ 
     p {
         font-size: 1.5rem;
         color: var(--cinza-texto);
         text-align: center;
         width: 36.5rem;
     }
-
+ 
     .sobre-container {
         display: flex;
         flex-direction: column;
@@ -28,15 +28,8 @@
         margin: auto;
         grid-column: 3 / 4;
         grid-row: 1;
-
-        /*   div{
-            animation-name: animacaoi;
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-        }
- */
     }
-
+ 
     .sobre-container-texto {
         display: flex;
         flex-direction: column;
@@ -47,7 +40,7 @@
         align-items: center;
         padding: 36px;
     }
-
+ 
     .elementos-sobre {
         background: linear-gradient(to right,
                 color-mix(in srgb, var(--amarelo-contraste) 40%, transparent) 60%,
@@ -57,61 +50,86 @@
         height: 100%;
         grid-column: 1 / 4;
         grid-row: 1;
-
+ 
         img {
             z-index: 2;
         }
     }
 }
-
-
+ 
+ 
+/* ─────────────────────────────────────────
+   TABLET ≤ 768px
+───────────────────────────────────────── */
 @media (max-width: 768px) {
-    /* ── SOBRE ── */
+ 
     .sobre {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         overflow: visible;
+        width: 100%;
+        box-sizing: border-box;
     }
  
     .sobre .elementos-sobre {
-        grid-column: 1 / 2;
-        grid-row: 1;
         display: flex;
         justify-content: center;
         background: none;
- 
-        img {
-            width: 70%;
-            max-width: 320px;
-        }
+        width: 100%;
     }
  
-    /* Círculo decorativo do sobre */
+    .sobre .elementos-sobre img {
+        display: none;
+        width: 70%;
+        max-width: 320px;
+    }
+ 
     .circulo {
         display: none;
     }
  
     .sobre .sobre-container {
-        grid-column: 1 / 2;
-        grid-row: 2;
         padding: 1.5rem;
         width: 100%;
         box-sizing: border-box;
     }
- 
+    
     .sobre h2 {
         font-size: 2rem;
         text-align: center;
     }
  
     .sobre p {
-        font-size: 1.1rem;
+        font-size: 1.6rem;
         width: 100%;
-        text-align: left;
+        text-align: center;
+        margin-top: 15px;
     }
  
     .sobre .sobre-container-texto {
         padding: 1.5rem;
         gap: 1rem;
+        height: auto;
+        width: 95%;
+        box-sizing: border-box;
+    }
+}
+ 
+ 
+/* ─────────────────────────────────────────
+   MOBILE ≤ 480px
+───────────────────────────────────────── */
+@media (max-width: 480px) {
+ 
+    .sobre-container img {
+        width: 40%;
+    }
+    .sobre h2 {
+        font-size: 1.6rem;
+    }
+ 
+    .sobre p {
+        font-size: 1rem;
     }
 }

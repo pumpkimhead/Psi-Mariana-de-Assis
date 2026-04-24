@@ -82,43 +82,66 @@ hr {
     }
 }
 
-/* 
-@keyframes animacaoi {
-    0% {
-        box-shadow: 0px 0px 3px 0px rgba(254, 209, 112);
-    }
 
-    50% {
-        box-shadow: 0px -1px 20px 0px #db2e7b
-    }
-
-    100% {
-        box-shadow: 0px 0px 3px 0px #6346c5
-    }
-} */
-
+/* ─────────────────────────────────────────
+   TABLET ≤ 768px
+───────────────────────────────────────── */
 @media (max-width: 768px) {
-/* ── FOOTER ── */
+
     footer {
         padding: 40px 1.25rem;
+        box-sizing: border-box;
+        width: 100%;
     }
- 
+
     .footer-header {
         align-items: center;
         text-align: center;
- 
+
         h2 {
             font-size: 2.5rem;
         }
     }
- 
+
     footer nav {
         gap: 20px;
         flex-wrap: wrap;
         justify-content: center;
     }
- 
+
     footer nav a {
         font-size: 1rem;
+    }
+}
+
+
+/* ─────────────────────────────────────────
+   MOBILE ≤ 480px
+───────────────────────────────────────── */
+@media (max-width: 480px) {
+
+    footer {
+        padding: 30px 1rem;
+    }
+
+    .footer-header h2 {
+        font-size: 1.25rem;
+    }
+
+    footer nav {
+        gap: 12px;
+    }
+
+    .footer-social a {
+        padding: 10px;
+    }
+
+    .footer-social img {
+        width: 28px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
     }
 }
