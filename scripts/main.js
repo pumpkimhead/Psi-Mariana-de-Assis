@@ -149,6 +149,24 @@ const limparTelefone = (telefone) => {
 }
 
 
+// ── MENU HAMBURGUER ──
+ 
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('header nav');
+ 
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('ativo');
+    nav.classList.toggle('aberto');
+});
+ 
+// Fecha o menu ao clicar em um link
+document.querySelectorAll('header nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('ativo');
+        nav.classList.remove('aberto');
+    });
+});
+
 // Mas você também pode bloquear direto no HTML sem precisar de JS, adicionando o atributo min no input de data:
 // html<input 
 //     type="date"

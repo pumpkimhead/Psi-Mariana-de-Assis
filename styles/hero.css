@@ -1,0 +1,270 @@
+.hero {
+    font-family: var(--fonte-principal);
+    overflow: hidden;
+    height: 1000px;
+ 
+    .grid-hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(to right,
+                color-mix(in srgb, var(--amarelo-contraste) 40%, transparent) 60%,
+                transparent 50%);
+ 
+        .grid-esquerda {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 50px;
+            gap: 60px;
+            grid-column: 1 / 2;
+            grid-row: 1;
+            z-index: 2;
+ 
+            h1 {
+                font-size: 6.25rem;
+                font-weight: 800;
+                color: var(--cinza-texto);
+                width: 34rem;
+            }
+ 
+            .texto-hero {
+                font-size: 2.063rem;
+                text-align: left;
+                color: var(--cinza-texto);
+            }
+ 
+            button {
+                background-color: var(--amarelo-contraste);
+                border: var(--cinza-texto) solid 1px;
+                padding: 20px;
+                border-radius: 20px;
+                font-size: 1.875rem;
+                font-weight: 600;
+                color: var(--cinza-texto);
+            }
+        }
+ 
+        .grid-direita {
+            grid-column: 3 / 4;
+            grid-row: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            gap: 40px;
+            padding-left: 120px;
+            color: var(--cinza-texto);
+            z-index: 2;
+        }
+ 
+        .grid-direita p {
+            font-size: 7.5rem;
+            font-weight: 800;
+            color: color-mix(in srgb, var(--cinza-texto-dois) 40%, transparent);
+            font-family: var(--fonte-principal);
+            z-index: 2;
+            text-align: right;
+        }
+ 
+        .grid-hero-circulo {
+            grid-column: 3 / 4;
+            grid-row: 1;
+            position: absolute;
+            width: 800px;
+            height: 100%;
+            background-color: var(--amarelo-contraste);
+            border-radius: 50%;
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+ 
+        img {
+            grid-column: 3 / 4;
+            grid-row: 1;
+            z-index: 3;
+            position: absolute;
+            place-self: center;
+            margin-right: 50%;
+        }
+    }
+}
+ 
+ 
+/* ─────────────────────────────────────────
+   TABLET ≤ 768px
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+ 
+    .hero {
+        background: linear-gradient(to right,
+                color-mix(in srgb, var(--amarelo-contraste) 40%, transparent) 100%,
+                transparent 0%);
+        height: auto;
+        min-height: 530px;
+        overflow: hidden;
+        width: 100%;
+    }
+ 
+    .hero .grid-hero {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        width: 100%;
+        min-height: 530px;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding-left: 1.5rem;
+    }
+ 
+    .hero .grid-hero .grid-hero-circulo {
+        display: none;
+    }
+ 
+    .hero .grid-hero .grid-esquerda {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 1.5rem;
+        z-index: 4;
+        flex: 1;
+        padding-bottom: 2.5rem;
+        min-width: 0;
+        margin-left: 20px;
+    }
+ 
+    .hero .grid-hero .grid-esquerda h1 {
+        font-size: 3.2rem;
+        width: auto;
+        line-height: 1.1;
+    }
+ 
+    .hero .grid-hero .grid-esquerda .texto-hero {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+ 
+    .hero .grid-hero .grid-esquerda button {
+        font-size: 1.1rem;
+        padding: 14px 20px;
+    }
+ 
+    .hero .grid-hero img {
+        content: url('../img/mariana sobre.png');
+        position: relative;
+        place-self: unset;
+        margin: 0;
+        width: 50%;
+        max-width: 300px;
+        object-fit: contain;
+        object-position: bottom;
+        z-index: 3;
+        align-self: flex-end;
+        flex-shrink: 0;
+    }
+ 
+    .hero .grid-hero .grid-direita {
+        display: none;
+    }
+}
+ 
+ 
+/* ─────────────────────────────────────────
+   MOBILE ≤ 480px
+───────────────────────────────────────── */
+@media (max-width: 480px) {
+ 
+    .hero {
+        position: relative;
+        height: auto;
+        min-height: unset;
+    }
+
+    /* "PSICOLOGA" decorativo */
+    .hero::before {
+        content: "PSICOLOGA";
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 3.3rem;
+        font-weight: 900;
+        color: color-mix(in srgb, var(--cinza-texto) 15%, transparent);
+        font-family: var(--fonte-principal);
+        letter-spacing: 0.05em;
+        z-index: 1;
+        pointer-events: none;
+        white-space: nowrap;
+        padding-top: 20px;
+    }
+ 
+    .hero .grid-hero {
+        /* padding-top = altura do header fixo (~65px) */
+        padding-top: 100px;
+        padding-left: 50px;
+        padding-right: 0;
+        padding-bottom: 0;
+        height: auto;
+        min-height: unset;
+        align-items: flex-end;
+        position: relative;
+        z-index: 2;
+    }
+ 
+    .hero .grid-hero .grid-esquerda {
+        margin-left: 0;
+        gap: 1rem;
+        padding-bottom: 2rem;
+        justify-content: flex-end;
+        flex: 1;
+        min-width: 0;
+    }
+ 
+    .hero .grid-hero .grid-esquerda h1 {
+        font-size: 1.4rem;
+        font-weight: 900;
+        line-height: 1.1;
+        width: auto;
+    }
+ 
+    .hero .grid-hero .grid-esquerda .texto-hero {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+ 
+    .hero .grid-hero .grid-esquerda button {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+        border-radius: 14px;
+    }
+ 
+    .hero .grid-hero img {
+        content: url('../img/mariana-perfil.png');
+        width: 50%;
+        max-width: 260px;
+        align-self: center;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 435px) {
+    .hero .grid-hero {
+        /* padding-top = altura do header fixo (~65px) */
+        padding-top: 150px;
+        padding-left: 1.8rem;
+        padding-right: 0;
+        padding-bottom: 0;
+        height: auto;
+        min-height: unset;
+        align-items: flex-end;
+        position: relative;
+        z-index: 2;
+    }
+}
