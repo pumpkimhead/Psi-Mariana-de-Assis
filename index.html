@@ -33,7 +33,7 @@
             <div class="grid-esquerda">
                 <h1>Mariana De Assis</h1>
                 <p class="texto-hero">Cuidar da sua mente é o primeiro passo para transformar sua vida.</p>
-                <button>Agendar Consulta</button>
+                <button onclick="location.href='#agendamento'">Agendar Consulta</button>
             </div>
             <div class="grid-direita">
                 <p>CUIDADO</p>
@@ -186,8 +186,12 @@
                     <div class="form-group">
                         <label>Forma de atendimento</label>
                         <div class="radio-group">
-                            <label><input type="radio" name="tipo" value="presencial"> Presencial
-                                <label><input type="radio" name="tipo" value="online"> Online</label>
+                            <label style="text-decoration: line-through; opacity: 0.5;">
+                                <input type="radio" name="tipo" value="presencial" disabled> Presencial
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo" value="online" checked> Online
+                            </label>
                         </div>
                     </div>
                 </div>

@@ -129,7 +129,7 @@
 /* ─────────────────────────────────────────
    TABLET ≤ 768px
 ───────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 890px) {
 
     .form-wrapper {
         padding: 40px 1.25rem;
@@ -173,6 +173,12 @@
     }
 }
 
+@media (max-width: 725px) {
+    .formulario .radio-group {
+        display: flex !important;
+        gap: 8px !important;
+    }
+}
 
 /* ─────────────────────────────────────────
    MOBILE ≤ 480px

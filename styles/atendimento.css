@@ -68,7 +68,7 @@
 /* ─────────────────────────────────────────
    TABLET ≤ 768px
 ───────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 890px) {
 
     .atendimentos {
         flex-direction: column;

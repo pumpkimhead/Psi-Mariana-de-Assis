@@ -87,7 +87,7 @@ hr {
 /* ─────────────────────────────────────────
    TABLET ≤ 768px
 ───────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 890px) {
 
     footer {
         padding: 40px 1.25rem;

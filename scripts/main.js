@@ -7,6 +7,9 @@ const inputTipoConsulta = document.getElementById('input-tipo-consulta');
 const form = document.querySelector("form");
 const resultMensagem = document.getElementById('resultMensagem');
 
+// BLOQUEIA DATAS PASSADAS DIRETO NO INPUT
+const hoje = new Date().toISOString().split('T')[0];
+data.setAttribute('min', hoje);
 
 // MÁSCARA DO TELEFONE
 const mascararTelefone = (valor) => {
@@ -26,7 +29,18 @@ const mascararTelefone = (valor) => {
     }
 }
 
+// FUNÇÃO PARA LIMPAR TELEFONE
+const limparTelefone = (telefone) => {
+    return telefone.replace(/\D/g, '');
+}
 
+// FUNÇÃO PARA VALIDAR EMAIL
+const validarEmail = (email) => {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regexEmail.test(email);
+}
+
+// EVENTOS INPUT
 telefone.addEventListener('input', (event) => {
     event.target.value = mascararTelefone(event.target.value);
 });
@@ -36,12 +50,10 @@ nome.addEventListener('input', () => {
     nome.placeholder = 'Seu nome completo';
 });
 
-
 telefone.addEventListener('input', () => {
     telefone.classList.remove('input-erro');
     telefone.placeholder = '(DDD) 99999-9999';
 });
-
 
 email.addEventListener('input', () => {
     email.classList.remove('input-erro');
@@ -49,33 +61,32 @@ email.addEventListener('input', () => {
     resultMensagem.textContent = '';
 });
 
-
 data.addEventListener('input', () => {
     data.classList.remove('input-erro');
 });
-
 
 inputHorario.addEventListener('change', () => {
     inputHorario.classList.remove('input-erro');
 });
 
-
 inputTipoConsulta.addEventListener('change', () => {
     inputTipoConsulta.classList.remove('input-erro');
 });
 
-// VALIDAÇÃO DO FORMULÁRIO
-form.addEventListener('submit', (event) => {
+// SUBMIT COM ENVIO PRA API
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
     let enviarForm = true;
 
-    // VALIDA NOME
+    // NOME
     if (!nome.value.trim()) {
         nome.classList.add('input-erro');
         nome.placeholder = 'Nome é obrigatório!';
         enviarForm = false;
     }
 
-    // VALIDA TELEFONE
+    // TELEFONE
     const telefoneLimpo = limparTelefone(telefone.value);
     if (telefoneLimpo.length < 10 || telefoneLimpo.length > 11) {
         telefone.classList.add('input-erro');
@@ -84,96 +95,103 @@ form.addEventListener('submit', (event) => {
         enviarForm = false;
     }
 
-    // VALIDA EMAIL
-    const eValido = validarEmail(email.value);
-    if (eValido) {
-        resultMensagem.textContent = 'E-mail válido!';
-        resultMensagem.style.color = 'green';
-    } else {
+    // EMAIL
+    if (!validarEmail(email.value)) {
         email.classList.add('input-erro');
         resultMensagem.textContent = 'E-mail inválido!';
         resultMensagem.style.color = 'red';
         enviarForm = false;
     }
 
-    // VALIDA DATA
+    // DATA
     if (!data.value) {
         data.classList.add('input-erro');
         enviarForm = false;
     } else {
-        // VERIFICA SE A DATA NÃO ESTÁ NO PASSADO
         const hoje = new Date();
         hoje.setHours(0, 0, 0, 0);
         const dataSelecionada = new Date(data.value + 'T00:00:00');
+
         if (dataSelecionada < hoje) {
             data.classList.add('input-erro');
-            enviarForm = false;
             alert('A data selecionada não pode ser no passado!');
+            enviarForm = false;
         }
     }
 
-    // VALIDA HORÁRIO
+    // HORÁRIO
     if (inputHorario.value === '') {
         inputHorario.classList.add('input-erro');
         enviarForm = false;
     }
 
-    // VALIDA TIPO CONSULTA
+    // CONSULTA
     if (inputTipoConsulta.value === '') {
         inputTipoConsulta.classList.add('input-erro');
         enviarForm = false;
     }
 
-    // VALIDA FORMA DE ATENDIMENTO
-    if (!document.querySelector('input[name="tipo"]:checked')) {
+    // ATENDIMENTO (radio)
+    const atendimentoSelecionado = document.querySelector('input[name="tipo"]:checked');
+    if (!atendimentoSelecionado) {
         document.querySelector('.radio-group').classList.add('radio-erro');
         enviarForm = false;
     } else {
         document.querySelector('.radio-group').classList.remove('radio-erro');
     }
 
-    if (!enviarForm) {
-        event.preventDefault();
+    if (!enviarForm) return;
+
+    // MONTA JSON
+    const dados = {
+        nome: nome.value.trim(),
+        email: email.value.trim(),
+        telefone: telefoneLimpo,
+        data: data.value + "T00:00:00.0",
+        horario: inputHorario.value,
+        consulta: inputTipoConsulta.value,
+        atendimento: atendimentoSelecionado.value
+    };
+
+    try {
+        const response = await fetch('https://api-psi-mariana-de-assis.onrender.com/api/agendamentos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        });
+
+        const resultado = await response.json();
+
+        if (response.ok) {
+            resultMensagem.textContent = 'Agendamento realizado com sucesso!';
+            resultMensagem.style.color = 'green';
+            form.reset();
+        } else {
+            resultMensagem.textContent = resultado.message || 'Erro ao agendar';
+            resultMensagem.style.color = 'red';
+        }
+
+    } catch (error) {
+        console.error(error);
+        resultMensagem.textContent = 'Erro ao conectar com a API';
+        resultMensagem.style.color = 'red';
     }
 });
 
-// FUNÇÃO PARA VALIDAR O EMAIL
-const validarEmail = (email) => {
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regexEmail.test(email);
-}
-
-// FUNÇÃO PARA LIMPAR O NÚMERO DE TELEFONE
-const limparTelefone = (telefone) => {
-    return telefone.replace(/\D/g, '');
-}
-
-
-// ── MENU HAMBURGUER ──
- 
+// MENU HAMBURGUER
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('header nav');
- 
+
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('ativo');
     nav.classList.toggle('aberto');
 });
- 
-// Fecha o menu ao clicar em um link
+
 document.querySelectorAll('header nav a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('ativo');
         nav.classList.remove('aberto');
     });
 });
-
-// Mas você também pode bloquear direto no HTML sem precisar de JS, adicionando o atributo min no input de data:
-// html<input 
-//     type="date"
-//     id="input-data"
-//     min="" <!-- 👈 vai receber a data de hoje via JS -->
-// >
-// E no JS, lá no topo junto com as outras variáveis:
-// javascript// BLOQUEIA DATAS PASSADAS DIRETO NO INPUT
-// const hoje = new Date().toISOString().split('T')[0];
-// data.setAttribute('min', hoje);

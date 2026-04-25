@@ -114,12 +114,36 @@ section {
 .hamburger.ativo span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
- 
+
+
+@media (min-width: 891px) {
+    a {
+    text-decoration: none;
+    color: var(--cinza-texto);
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--cinza-texto);
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+}
+}
  
 /* ─────────────────────────────────────────
    TABLET ≤ 768px
 ───────────────────────────────────────── */
-@media (max-width: 768px) {
+@media (max-width: 890px) {
  
     body {
         overflow-x: hidden;
@@ -138,6 +162,25 @@ section {
     header nav img {
         width: 140px;
     }
+}
+
+
+@media (max-width: 639px) {
+
+    header nav {
+        width: 100%;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+    }
+    header nav img {
+        width: 100px;
+    }
+
 }
  
  
