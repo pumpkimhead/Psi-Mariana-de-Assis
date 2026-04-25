@@ -67,6 +67,7 @@
         background-color: #FFF6F6;
         padding: 20px;
         width: 1050px;
+        text-align: justify;
         border-radius: 0 0 20px 20px;
         font-size: 1.5rem;
         color: var(--cinza-texto-dois);
