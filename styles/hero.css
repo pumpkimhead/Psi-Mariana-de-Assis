@@ -91,6 +91,7 @@
             position: absolute;
             place-self: center;
             margin-right: 50%;
+            
         }
     }
 }
@@ -241,7 +242,7 @@
  
     .hero .grid-hero .grid-esquerda button {
         font-size: 0.9rem;
-        padding: 12px 20px;
+        padding: 12px 16px;
         border-radius: 14px;
     }
  
@@ -252,6 +253,7 @@
         align-self: center;
         flex-shrink: 0;
     }
+    
 }
 
 @media (max-width: 435px) {

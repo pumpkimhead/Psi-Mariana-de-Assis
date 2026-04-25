@@ -133,7 +133,14 @@
         padding: 16px;
     }
 
-.atendimento-conteudo p {
+    .atendimento-conteudo p {
         font-size: 0.8rem;
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
     }
+    .atendimento-container-box img {
+    width: 30%;
+    }
+    
 }

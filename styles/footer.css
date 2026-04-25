@@ -125,11 +125,14 @@ hr {
     }
 
     .footer-header h2 {
-        font-size: 1.25rem;
+        font-size: 1.55rem;
     }
 
     footer nav {
         gap: 12px;
+    }
+    .footer-header p {
+        font-size: 1rem;
     }
 
     .footer-social a {
@@ -143,5 +146,8 @@ hr {
     .footer-bottom {
         flex-direction: column;
         gap: 8px;
+    }
+    .footer-bottom span {
+        display: none;
     }
 }

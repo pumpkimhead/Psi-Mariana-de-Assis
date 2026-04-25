@@ -108,6 +108,7 @@
     button {
         background-color: var(--lilas-base);
         border: 1px solid var(--cinza-texto-dois);
+        cursor: pointer;
         padding: 20px;
         border-radius: 20px;
         font-size: 1.875rem;
@@ -217,4 +218,9 @@
             font-size: 1rem;
             
         }
+        #input-email {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px;
+    }
 }

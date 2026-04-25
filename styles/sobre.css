@@ -121,9 +121,17 @@
    MOBILE ≤ 480px
 ───────────────────────────────────────── */
 @media (max-width: 480px) {
- 
+    .sobre-container div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+    
     .sobre-container img {
-        width: 40%;
+        width: 60%;
     }
     .sobre h2 {
         font-size: 1.6rem;
