@@ -58,6 +58,32 @@
         padding: 40px;
     }
 
+    .atendimento-container-box-principal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        border-radius: 20px;
+        border: var(--cinza-texto-dois) solid 1px;
+        width: 620px;
+        height: 460px;
+        background-color: var(--branco-quente);
+        text-align: justify;
+    }
+
+    .atendimento-conteudo-principal {
+        display: flex;
+        flex-direction: column;
+        line-height: normal;
+        color: var(--cinza-texto);
+        margin: 30px;
+
+        p {
+            font-size: 1.063rem;
+            font-weight: 400;
+        }
+    }
+
     img {
         z-index: 1;
         object-fit: cover;
@@ -104,6 +130,11 @@
         padding: 16px;
         gap: 16px;
         box-sizing: border-box;
+    }
+
+    .atendimentos .atendimento-container-box-principal {
+        width: 100%;
+        height: auto;
     }
 
     .atendimentos > img {
