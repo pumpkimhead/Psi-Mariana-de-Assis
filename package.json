@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build": "npx javascript-obfuscator scripts/main.js --output dist/scripts/main.js && cp index.html dist/index.html && cp reset.css dist/reset.css && cp style.css dist/style.css && cp -r styles dist/styles && cp -r img dist/img"
+  }
+}
